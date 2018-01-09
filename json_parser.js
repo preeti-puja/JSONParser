@@ -18,11 +18,11 @@ function colonParser (input ) {
 
 function boolParser (input ) {
   if (input.startsWith('true')) {
-    return (['true',  input.slice(4)]);
+    return ([true,  input.slice(4)]);
   }
   
   else if (input.startsWith('false')) {
-    return (['false',  input.slice(4)]);
+    return ([false,  input.slice(5)]);
   }
 
   else {
@@ -42,9 +42,9 @@ function nullParser (input ) {
 
 function spaceParser (input) {
   if (input.match(/^[\s]/)) {
-    return ([" ", input.slice(input.match(/\S/).index)]);
+    return ([input.slice(0, input.match(/\S/).index)) , input.slice(input.match(/\S/).index)]);
   }
   else {
-    return (null)
+    return (null);
   }
 }
