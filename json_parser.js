@@ -30,11 +30,21 @@ function boolParser (input ) {
   }
 }
 
-function colonParser (input ) {
+function nullParser (input ) {
   if (input.startsWith('null')) {
     return (['null',  input.slice(4)]);
   }
   else {
     return (null);
+  }
+}
+
+
+function spaceParser (input) {
+  if (input.match(/^[\s]/)) {
+    return ([" ", input.slice(input.match(/\S/).index)]);
+  }
+  else {
+    return (null)
   }
 }
